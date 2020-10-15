@@ -1,0 +1,12 @@
+{
+  "ConnectionStrings": {
+    "SqlServer": "",
+    //"MySqlConnection": "server=127.0.0.1;uid=root;pwd=12345;database=test"
+    "QuickBuyDB": "server=localhost;uid=root;pwd=admin;database=QuickBuyDB"
+  }
+}
+
+
+
+
+
