@@ -8,7 +8,7 @@ using System.Text;
 
 namespace QuickBuy.Repositorio.Contexto
 {
-    public class QuickBuyContexto :DbContext    
+    public class QuickBuyContexto : DbContext
     {
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Produto> Produtos { get; set; }
@@ -29,7 +29,28 @@ namespace QuickBuy.Repositorio.Contexto
             modelBuilder.ApplyConfiguration(new ItemPedidoConfiguration());
             modelBuilder.ApplyConfiguration(new FormaPagamentoConfiguration());
 
-            base.OnModelCreating(modelBuilder); 
+            modelBuilder.Entity<FormaPagamento>().HasData(
+                new FormaPagamento()
+                {
+                    Id =1,
+                    Nome = "Boleto",
+                    Descricao = "Forma de pagamento Boleto"
+                },
+                new FormaPagamento()
+                {
+                    Id = 2,
+                    Nome = "Cartao de Crédito",
+                    Descricao = "Forma de pagamento Cartão de Crédito"
+                },
+                new FormaPagamento()
+                {
+                    Id = 3,
+                    Nome = "Depósito",
+                    Descricao = "Forma de pagamento Deposito"
+                }
+            );
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
